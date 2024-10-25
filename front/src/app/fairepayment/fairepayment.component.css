@@ -1,0 +1,48 @@
+mat-form-field{
+  display: block;
+}
+iframe {
+  border: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  padding: 16px;
+}
+
+.mat-card {
+  flex: 1;
+  margin: 0;
+}
+
+.file-input {
+  display: none;
+}
+
+.file-upload {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.upload-btn {
+  margin-left: 8px;
+}
+
+.pdf-viewer-container {
+  flex: 2; /* Le viewer prend deux fois plus d'espace que le formulaire */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pdf-viewer {
+  width: 500px;
+  height: 100vh; /* ajustez la hauteur selon vos besoins */
+  max-width: 1200px;
+display: block;
+  margin: 0 auto;
+}
+

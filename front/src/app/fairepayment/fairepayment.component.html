@@ -1,0 +1,67 @@
+<div class="container">
+
+  <mat-card [formGroup]="formpayment" >
+    <mat-card-header>
+      <mat-card-title>
+        effectuer un payment
+      </mat-card-title>
+ <mat-card-content>
+   <mat-form-field>
+       <mat-label>date du payment</mat-label>
+       <input matInput [matDatepicker]="picker" formControlName="date">
+       <mat-hint>MM/DD/YYYY</mat-hint>
+       <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+       <mat-datepicker #picker></mat-datepicker>
+     </mat-form-field>
+   <mat-form-field>
+     <mat-label>file du payement</mat-label>
+     <button type="button" mat-icon-button matPrefix (click)="f_input.click()">
+
+       <mat-icon>attach_file</mat-icon>
+     </button>
+     <input matInput readonly formControlName="file">
+     <input type="file" hidden #f_input (change)="onFileSelected($event)" accept="application/pdf">
+
+   </mat-form-field>
+
+
+
+
+   <mat-form-field>
+     <mat-label>amount du payement</mat-label>
+     <input matInput formControlName="amount">
+   </mat-form-field>
+   <mat-form-field>
+     <mat-label>type du payement</mat-label>
+     <mat-select formControlName="type">
+       @for (t of paymentType; track t){
+         <mat-option [value]="t" >{{t}}</mat-option>
+       }
+     </mat-select>
+   </mat-form-field>
+   <mat-form-field>
+     <mat-label>studentCode du payement</mat-label>
+     <input matInput formControlName="studentCode">
+   </mat-form-field>
+   <mat-card-actions>
+     <button mat-raised-button color="primary" (click)="savepayment()">valider le payment</button>
+     @if (progresse){
+       <mat-spinner ></mat-spinner>
+     }
+
+   </mat-card-actions>
+ </mat-card-content>
+    </mat-card-header>
+
+  </mat-card>
+  <div *ngIf="filepdf">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Vue du fichier PDF</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <pdf-viewer [src]="filepdf" [render-text]="true" [original-size]="true" class="pdf-viewer" ></pdf-viewer>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
