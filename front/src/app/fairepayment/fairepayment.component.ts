@@ -8,7 +8,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 @Component({
   selector: 'app-fairepayment',
   templateUrl: './fairepayment.component.html',
-  styleUrls: ['./fairepayment.component.css']  // Correction : "styleUrl" -> "styleUrls"
+  styleUrls: ['./fairepayment.component.css'] 
 })
 export class FairepaymentComponent implements OnInit {
   formpayment!: FormGroup;
@@ -50,13 +50,13 @@ export class FairepaymentComponent implements OnInit {
     if (file) {
       this.fileName = file.name;
 
-      // Créer une URL temporaire pour afficher le fichier
+      // Creation de lURL temporaire pour afficher le fichier
       const fileUrl = URL.createObjectURL(file);
 
-      // Mettez à jour le formulaire avec le fichier sélectionné
+      // Mettre a jour le formulaire avec le fichier selectionne
       this.formpayment.patchValue({ file: file });
 
-      // Enregistrez l'URL du fichier dans une variable pour le viewer
+      // Enregistre lURL du fichier dans une variable pour le viewer
       this.filepdf = fileUrl;  // Variable pour afficher le fichier dans le viewer
     }
   }
@@ -89,7 +89,7 @@ this.progresse =true;
         error: (err) => {
           console.error('Error saving payment', err);
 
-          // Afficher une notification d'échec
+          // Afficher une notification d'echec
           this.snackBar.open('Failed to save payment. Please try again.', 'Close', {
             duration: 3000,
             verticalPosition: 'top',
@@ -100,7 +100,7 @@ this.progresse =true;
       });
     } else {
       console.log('Form is invalid');
-      // on peut afficher ici un message d'erreur si le formulaire n'est pas valide
+      // afficher ici un message derreur si le formulaire nest pas valide
       this.snackBar.open('Form is invalid. Please fill in all required fields.', 'Close', {
         duration: 3000,
         verticalPosition: 'top',
